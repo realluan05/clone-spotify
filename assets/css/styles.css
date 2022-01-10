@@ -1,0 +1,637 @@
+@font-face {
+  font-family: "Circular";
+  src: url("../fonts/CircularStd-Light.otf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Circular";
+  src: url("../fonts/CircularStd-Medium.otf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Circular";
+  src: url("../fonts/CircularStd-Bold.otf");
+  font-weight: 700;
+}
+/* Valores Gerais */
+/* line 7, ../scss/styles.scss */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  color: #ffffff;
+  font-family: "Circular";
+}
+
+/* line 16, ../scss/styles.scss */
+a {
+  font-size: 16px;
+  text-decoration: none;
+}
+/* line 20, ../scss/styles.scss */
+a:hover {
+  color: #1ed760;
+}
+
+/* line 25, ../scss/styles.scss */
+p {
+  font-size: 14px;
+}
+
+/* line 29, ../scss/styles.scss */
+h1 {
+  font-size: 60px;
+}
+
+/* line 30, ../scss/styles.scss */
+h2, h3 {
+  font-size: 24px;
+}
+
+/* line 32, ../scss/styles.scss */
+ul, li, ol {
+  list-style: none;
+}
+
+/* line 36, ../scss/styles.scss */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* line 40, ../scss/styles.scss */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* line 45, ../scss/styles.scss */
+.button {
+  background-color: #1ed760;
+  color: #2941ab;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 50px;
+  padding: 15px 30px;
+  display: inline-block;
+  max-width: 215px;
+}
+
+@media screen and (max-width: 1000px) {
+  /* line 55, ../scss/styles.scss */
+  .no-mobile {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  /* line 61, ../scss/styles.scss */
+  .no-desktop {
+    display: none;
+  }
+}
+
+/* Header */
+/* line 69, ../scss/styles.scss */
+.header {
+  background-color: #000;
+}
+/* line 72, ../scss/styles.scss */
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+@media screen and (max-width: 1000px) {
+  /* line 72, ../scss/styles.scss */
+  .header .container {
+    padding: 20px 15px;
+    position: relative;
+  }
+}
+/* line 80, ../scss/styles.scss */
+.header .container .icon-menu {
+  position: absolute;
+  right: 10%;
+  width: 30px;
+  height: 30px;
+  z-index: 999;
+}
+/* line 87, ../scss/styles.scss */
+.header .container .icon-menu .icon {
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 300ms;
+}
+/* line 97, ../scss/styles.scss */
+.header .container .icon-menu .icon::before {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  position: absolute;
+  top: -10px;
+}
+/* line 106, ../scss/styles.scss */
+.header .container .icon-menu .icon::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  position: absolute;
+  bottom: -10px;
+}
+/* line 116, ../scss/styles.scss */
+.header .container .icon-menu.active .icon {
+  transform: rotate(45deg);
+}
+/* line 119, ../scss/styles.scss */
+.header .container .icon-menu.active .icon::after {
+  transform: rotate(90deg);
+  bottom: 0;
+}
+/* line 124, ../scss/styles.scss */
+.header .container .icon-menu.active .icon::before {
+  top: 0;
+}
+@media screen and (max-width: 1000px) {
+  /* line 130, ../scss/styles.scss */
+  .header .container > nav {
+    right: -100%;
+    top: 0;
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    transition: 300ms;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+  }
+  /* line 142, ../scss/styles.scss */
+  .header .container > nav ul.menu {
+    padding: 30px 40px;
+    align-items: flex-start;
+    gap: 20px 0;
+  }
+  /* line 147, ../scss/styles.scss */
+  .header .container > nav ul.menu > li {
+    position: relative;
+    left: 100%;
+    transition: 500ms;
+  }
+  /* line 152, ../scss/styles.scss */
+  .header .container > nav ul.menu > li > a {
+    font-size: 30px;
+  }
+  /* line 156, ../scss/styles.scss */
+  .header .container > nav ul.menu > li > span {
+    transform: rotate(90deg);
+    display: block;
+    margin-left: 10px;
+  }
+  /* line 162, ../scss/styles.scss */
+  .header .container > nav ul.menu > li:nth-child(n + 5) > a {
+    font-size: 24px;
+    font-weight: 300;
+  }
+  /* line 167, ../scss/styles.scss */
+  .header .container > nav ul.menu > li.logo-mobile {
+    position: absolute;
+    bottom: 50px;
+    left: 100%;
+    transition: 500ms;
+  }
+}
+/* line 177, ../scss/styles.scss */
+.header .container > nav.active {
+  right: 0;
+  opacity: 1;
+  visibility: visible;
+}
+/* line 182, ../scss/styles.scss */
+.header .container > nav.active ul.menu > li {
+  left: 0;
+}
+/* line 185, ../scss/styles.scss */
+.header .container > nav.active ul.menu > li.logo-mobile {
+  left: 40px;
+}
+/* line 192, ../scss/styles.scss */
+.header .container ul.menu {
+  display: flex;
+  align-items: center;
+  gap: 0 35px;
+}
+@media screen and (max-width: 1000px) {
+  /* line 192, ../scss/styles.scss */
+  .header .container ul.menu {
+    flex-direction: column;
+    padding-bottom: 15px;
+  }
+}
+/* line 197, ../scss/styles.scss */
+.header .container ul.menu > li > a {
+  font-weight: 700;
+}
+/* line 200, ../scss/styles.scss */
+.header .container ul.menu > li > span {
+  font-weight: 400;
+  font-size: 18px;
+}
+/* line 205, ../scss/styles.scss */
+.header .container ul.menu > li:nth-child(n + 5) > a {
+  color: #d9dadc;
+}
+/* line 208, ../scss/styles.scss */
+.header .container ul.menu > li:nth-child(n + 5) > a:hover {
+  color: #1ed760;
+}
+
+/* Main */
+/* line 221, ../scss/styles.scss */
+.main section .container {
+  padding: 65px 0;
+}
+@media screen and (max-width: 1000px) {
+  /* line 221, ../scss/styles.scss */
+  .main section .container {
+    padding: 65px 15px;
+  }
+}
+/* line 227, ../scss/styles.scss */
+.main section .container > * {
+  width: 48%;
+}
+@media screen and (max-width: 1000px) {
+  /* line 227, ../scss/styles.scss */
+  .main section .container > * {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* line 236, ../scss/styles.scss */
+.main section.download-app {
+  background: url("../images/banner-desktop.svg") no-repeat #f46ebe;
+  background-position: right -1200px bottom -428px;
+}
+@media screen and (max-width: 1000px) {
+  /* line 236, ../scss/styles.scss */
+  .main section.download-app {
+    background: url("../images/banner-mobile.svg"), url("../images/banner-mobile.svg");
+    background-size: 1044.4px;
+    background-position: right 40.3% bottom -509px, right -625px top -461px;
+    background-repeat: no-repeat;
+    background-color: #f46ebe;
+  }
+}
+/* line 248, ../scss/styles.scss */
+.main section.download-app .container > * {
+  color: #202F72;
+}
+/* line 252, ../scss/styles.scss */
+.main section.download-app .container > p {
+  font-weight: 600;
+}
+@media screen and (max-width: 1000px) {
+  /* line 252, ../scss/styles.scss */
+  .main section.download-app .container > p {
+    font-size: 10px;
+  }
+}
+/* line 259, ../scss/styles.scss */
+.main section.download-app .container h1 {
+  padding: 30px 0;
+}
+@media screen and (max-width: 1000px) {
+  /* line 259, ../scss/styles.scss */
+  .main section.download-app .container h1 {
+    font-size: 29px;
+  }
+}
+/* line 265, ../scss/styles.scss */
+.main section.download-app .container h1 > span {
+  color: #202F72;
+  font-size: 60px;
+  font-weight: 700;
+  display: block;
+}
+@media screen and (max-width: 1000px) {
+  /* line 265, ../scss/styles.scss */
+  .main section.download-app .container h1 > span {
+    display: initial;
+    font-size: 31px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  /* line 275, ../scss/styles.scss */
+  .main section.download-app .container h2 {
+    font-size: 18px;
+    font-weight: 300;
+    width: 75%;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 1000px) {
+  /* line 284, ../scss/styles.scss */
+  .main section.download-app .container > a {
+    font-size: 14px;
+  }
+}
+/* line 290, ../scss/styles.scss */
+.main section.download-app .container > nav {
+  padding: 30px 0;
+}
+/* line 293, ../scss/styles.scss */
+.main section.download-app .container > nav ul {
+  display: flex;
+  align-items: center;
+  gap: 0 10px;
+}
+@media screen and (max-width: 1000px) {
+  /* line 293, ../scss/styles.scss */
+  .main section.download-app .container > nav ul {
+    justify-content: center;
+  }
+}
+/* line 300, ../scss/styles.scss */
+.main section.download-app .container > nav ul > li:nth-child(2) > a > figure img {
+  width: 160px;
+  height: 60px;
+}
+@media screen and (max-width: 1000px) {
+  /* line 305, ../scss/styles.scss */
+  .main section.download-app .container > nav ul > li:nth-child(-n + 2) {
+    display: none;
+  }
+}
+@media screen and (min-width: 1000px) {
+  /* line 311, ../scss/styles.scss */
+  .main section.download-app .container > nav ul > li.last {
+    display: none;
+  }
+}
+/* line 316, ../scss/styles.scss */
+.main section.download-app .container > nav ul > li.last .button {
+  background-color: #202F72;
+  color: #ffffff;
+}
+/* line 324, ../scss/styles.scss */
+.main section.download-app .container > a {
+  text-decoration: underline;
+}
+@media screen and (max-width: 1000px) {
+  /* line 324, ../scss/styles.scss */
+  .main section.download-app .container > a {
+    display: block;
+  }
+}
+/* line 333, ../scss/styles.scss */
+.main section.download-free {
+  background: url("../images/banner-desktop02.svg") no-repeat #2941ab;
+  background-position: right center;
+  background-size: auto 100%;
+}
+@media screen and (max-width: 1000px) {
+  /* line 333, ../scss/styles.scss */
+  .main section.download-free {
+    background: url("../images/banner-mobile02.svg") no-repeat #2941ab;
+    background-position: 65% 55%;
+    background-size: auto 177%;
+  }
+}
+/* line 343, ../scss/styles.scss */
+.main section.download-free .container {
+  padding-bottom: 230px;
+}
+@media screen and (max-width: 1000px) {
+  /* line 343, ../scss/styles.scss */
+  .main section.download-free .container {
+    padding-bottom: 150px;
+  }
+}
+/* line 349, ../scss/styles.scss */
+.main section.download-free .container > *:not(:last-child) {
+  color: #1ed760;
+}
+/* line 353, ../scss/styles.scss */
+.main section.download-free .container > p {
+  font-weight: 600;
+}
+@media screen and (max-width: 1000px) {
+  /* line 353, ../scss/styles.scss */
+  .main section.download-free .container > p {
+    font-size: 10px;
+  }
+}
+/* line 360, ../scss/styles.scss */
+.main section.download-free .container h2 {
+  padding: 30px 0;
+  font-size: 60px;
+}
+@media screen and (max-width: 1000px) {
+  /* line 360, ../scss/styles.scss */
+  .main section.download-free .container h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  /* line 368, ../scss/styles.scss */
+  .main section.download-free .container > h3 {
+    font-size: 18px;
+    font-weight: 300;
+  }
+}
+/* line 375, ../scss/styles.scss */
+.main section.download-free .container .button {
+  margin-top: 50px;
+}
+@media screen and (max-width: 1000px) {
+  /* line 375, ../scss/styles.scss */
+  .main section.download-free .container .button {
+    display: block;
+    margin: 50px auto 0;
+  }
+}
+/* line 382, ../scss/styles.scss */
+.main section.download-free .container .button:hover {
+  transform: scale(1.05);
+  color: #2941ab;
+  background-color: #2DE26D;
+}
+
+/* Footer */
+/* line 395, ../scss/styles.scss */
+.footer {
+  background-color: #000;
+  padding: 80px 0 50px;
+}
+@media screen and (max-width: 1000px) {
+  /* line 395, ../scss/styles.scss */
+  .footer {
+    padding: 80px 15px 50px;
+  }
+}
+/* line 402, ../scss/styles.scss */
+.footer .footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
+  grid-gap: 30px;
+}
+@media screen and (max-width: 1000px) {
+  /* line 402, ../scss/styles.scss */
+  .footer .footer-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 1000px) and (max-width: 1000px) {
+  /* line 402, ../scss/styles.scss */
+  .footer .footer-top {
+    flex-direction: column;
+    padding-bottom: 15px;
+  }
+}
+
+/* line 408, ../scss/styles.scss */
+.footer .footer-top .redes-sociais > ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0 15px;
+}
+/* line 412, ../scss/styles.scss */
+.footer .footer-top .redes-sociais > ul > li {
+  width: 54px;
+  height: 54px;
+  background-color: #222326;
+  border-radius: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+/* line 421, ../scss/styles.scss */
+.footer .footer-top .redes-sociais > ul > li i {
+  font-size: 24px;
+}
+/* line 425, ../scss/styles.scss */
+.footer .footer-top .redes-sociais > ul > li:hover i::before {
+  color: #1ed760;
+}
+/* line 432, ../scss/styles.scss */
+.footer .footer-top nav > h2 {
+  color: #919496;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+/* line 438, ../scss/styles.scss */
+.footer .footer-top nav ul > li {
+  margin-bottom: 15px;
+}
+/* line 441, ../scss/styles.scss */
+.footer .footer-top nav ul > li > a {
+  font-weight: 400;
+}
+/* line 448, ../scss/styles.scss */
+.footer .footer-bottom {
+  padding-top: 80px;
+}
+@media screen and (min-width: 1000px) {
+  /* line 448, ../scss/styles.scss */
+  .footer .footer-bottom {
+    text-align: right;
+  }
+}
+/* line 454, ../scss/styles.scss */
+.footer .footer-bottom .locale {
+  display: inline-block;
+  margin: 0 0 10px;
+}
+/* line 458, ../scss/styles.scss */
+.footer .footer-bottom .locale figure {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0 10px;
+  color: #919496;
+  font-weight: 600;
+}
+/* line 465, ../scss/styles.scss */
+.footer .footer-bottom .locale:hover > figure {
+  color: #1ed760;
+}
+/* line 470, ../scss/styles.scss */
+.footer .footer-bottom .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (max-width: 1000px) {
+  /* line 470, ../scss/styles.scss */
+  .footer .footer-bottom .wrapper {
+    flex-direction: column-reverse;
+    padding-bottom: 15px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  /* line 470, ../scss/styles.scss */
+  .footer .footer-bottom .wrapper {
+    align-items: flex-start;
+  }
+}
+/* line 476, ../scss/styles.scss */
+.footer .footer-bottom .wrapper nav > ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0 30px;
+}
+@media screen and (max-width: 1000px) {
+  /* line 476, ../scss/styles.scss */
+  .footer .footer-bottom .wrapper nav > ul {
+    flex-direction: column;
+    padding-bottom: 15px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  /* line 476, ../scss/styles.scss */
+  .footer .footer-bottom .wrapper nav > ul {
+    align-items: flex-start;
+    gap: 10px 0;
+  }
+}
+/* line 484, ../scss/styles.scss */
+.footer .footer-bottom .wrapper nav > ul > li > a {
+  color: #919496;
+  font-size: 12px;
+  font-weight: 400;
+}
+/* line 487, ../scss/styles.scss */
+.footer .footer-bottom .wrapper nav > ul > li > a:hover {
+  color: #1ed760;
+}
+/* line 493, ../scss/styles.scss */
+.footer .footer-bottom .wrapper address {
+  color: #919496;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+}
+@media screen and (max-width: 1000px) {
+  /* line 493, ../scss/styles.scss */
+  .footer .footer-bottom .wrapper address {
+    margin: 10px 0;
+  }
+}

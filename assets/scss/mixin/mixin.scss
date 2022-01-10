@@ -1,0 +1,54 @@
+@import '../var.scss';
+
+@mixin bp($type, $value)
+{
+  @if $type == "min-width" or $type == "max-width" {
+    @media screen and ($type: $value) {
+      @content;
+    }
+  }
+}
+
+@mixin flex($align: '', $justify: '', $direction: '')
+{
+  display: flex;
+  @if $align != '' {
+    align-items: $align;
+  }
+  @if $justify != '' {
+    justify-content: $justify;
+  }
+  @if $direction != '' {
+    @include bp(max-width, $bp-medium) {
+      flex-direction: $direction;
+      padding-bottom: $trim-small;
+    }
+  }
+}
+
+@mixin grid($columns: '', $rows: '', $gap: '')
+{
+  display: grid;
+  @if $columns != '' {
+    grid-template-columns: $columns;
+  }
+  @if $rows != '' {
+    grid-template-rows: $rows;
+  }
+  @if $gap != '' {
+    grid-gap: $gap;
+  }
+}
+
+@mixin centraliza()
+{
+  max-width: $max-container-width;
+  margin: 0 auto;
+}
+
+@mixin text($color, $font-size, $font-weight)
+{
+  color: $color;
+  font-size: $font-size;
+  font-weight: $font-weight;
+}
